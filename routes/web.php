@@ -12,8 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome2');
 });
 
 
-Route::get('/weather/{province}', 'WeatherController@show');
+Route::get('weather', 'WeatherController@index');
+Route::get('weather/province/{province}', 'WeatherController@provinceWeather');
+Route::get('weather/location/{latitude}/{longitude}', 'WeatherController@locationWeather');
