@@ -65,7 +65,7 @@ class WeatherController extends Controller
         $url = 'http://dataservice.accuweather.com/forecasts/v1/daily/1day/'.$locationKey;
         $url .= '?apikey='.$apiKey.'&metric=true';
 
-        $forecastData = self::curlProcess($url);
+        $forecastData = self::curlGetRequest($url);
         return $forecastData;
     }
 
