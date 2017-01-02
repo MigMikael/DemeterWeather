@@ -51,6 +51,10 @@
             <a target="_blank" href="{{ url('weather/location/13_809739/100_045359') }}" class="btn btn-danger">
                 Example
             </a>
+
+            <a target="_blank" href="{{ url('weather/send_weather_forecast/13_809739/100_045359') }}" class="btn btn-warning">
+                Send To Cloud
+            </a>
         </div>
     </div>
     <hr>

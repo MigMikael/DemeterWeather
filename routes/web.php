@@ -19,3 +19,4 @@ Route::get('/', function () {
 Route::get('weather', 'WeatherController@index');
 Route::get('weather/province/{province}', 'WeatherController@provinceWeather');
 Route::get('weather/location/{latitude}/{longitude}', 'WeatherController@locationWeather');
+Route::get('weather/send_weather_forecast/{latitude}/{longitude}', 'WeatherController@sendWeatherForecast');

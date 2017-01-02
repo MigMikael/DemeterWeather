@@ -29,6 +29,24 @@ class WeatherController extends Controller
         return $forecastsData;
     }
 
+    public function sendWeatherForecast($latitude, $longitude)
+    {
+        $locationKey = self::getLocationKeyByLatLong($latitude, $longitude);
+        $forecastsData = self::getDailyForecasts($locationKey);
+
+        $data = [
+            'min_temp' => $forecastsData['DailyForecasts'][0]['Temperature']['Minimum']['Value'],
+            'max_temp' => $forecastsData['DailyForecasts'][0]['Temperature']['Maximum']['Value'],
+            'thunderstorm_probability' => $forecastsData['DailyForecasts'][0]['Day']['ThunderstormProbability'],
+            'rain_probability' => $forecastsData['DailyForecasts'][0]['Day']['RainProbability'],
+            'uv_index' => $forecastsData['DailyForecasts'][0]['AirAndPollen'][5]['CategoryValue'],
+            'air_quality' => $forecastsData['DailyForecasts'][0]['AirAndPollen'][0]['CategoryValue']
+        ];
+
+
+        return $data;
+    }
+
     public function getLocationKeyByProvince($province)
     {
         $province = str_replace('_', ' ', $province);
@@ -63,7 +81,7 @@ class WeatherController extends Controller
     {
         $apiKey = env('ACCU_WEATHER_API_KEY');
         $url = 'http://dataservice.accuweather.com/forecasts/v1/daily/1day/'.$locationKey;
-        $url .= '?apikey='.$apiKey.'&metric=true';
+        $url .= '?apikey='.$apiKey.'&details=true&metric=true';
 
         $forecastData = self::curlGetRequest($url);
         return $forecastData;
@@ -83,6 +101,11 @@ class WeatherController extends Controller
         curl_close($curl);
 
         return $data;
+    }
+
+    public function curlPostRequest($url)
+    {
+        
     }
 
     /*public function testCallAPI()
