@@ -10,7 +10,7 @@
             <br>
             <a href="{{ url('weather') }}" class="btn btn-primary">Weather</a>
             <a href="" class="btn btn-success">Plant</a>
-            <a href="https://persephoneweather.herokuapp.com/" class="btn btn-warning">Cloud</a>
+            <a target="_blank" href="https://persephoneweather.herokuapp.com/" class="btn btn-warning">Cloud</a>
         </div>
     </div>
 @stop

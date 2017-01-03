@@ -43,7 +43,10 @@ class WeatherController extends Controller
             'air_quality' => $forecastsData['DailyForecasts'][0]['AirAndPollen'][0]['CategoryValue']
         ];
 
+        $url = 'http://persephoneweather.herokuapp.com/api/weather_forecast';
+        $data = self::curlPostRequest($url, $data);
 
+        Log::info('#### Data '. $data);
         return $data;
     }
 
@@ -103,22 +106,15 @@ class WeatherController extends Controller
         return $data;
     }
 
-    public function curlPostRequest($url)
+    public function curlPostRequest($url, $data)
     {
-        
-    }
-
-    /*public function testCallAPI()
-    {
-        $url = '';
-        $header = 'Authorization: Bearer 1cf79c3815e14dcca43920c4c5368285';
-
         $curl = curl_init();
         curl_setopt_array($curl, array(
             CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_HTTPHEADER => $header,
             CURLOPT_URL => $url,
-            CURLOPT_USERAGENT => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+            CURLOPT_USERAGENT => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+            CURLOPT_POST => 1,
+            CURLOPT_POSTFIELDS => $data
         ));
 
         $response = curl_exec($curl);
@@ -126,5 +122,5 @@ class WeatherController extends Controller
         curl_close($curl);
 
         return $data;
-    }*/
+    }
 }
