@@ -46,7 +46,7 @@ class WeatherController extends Controller
         $url = 'http://persephoneweather.herokuapp.com/api/weather_forecast';
         $data = self::curlPostRequest($url, $data);
 
-        Log::info('#### Data '. $data);
+        Log::info('#### Data '. implode(' ', $data));
         return $data;
     }
 
