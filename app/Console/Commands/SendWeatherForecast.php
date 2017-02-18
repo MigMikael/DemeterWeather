@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 use App\Http\Controllers\WeatherController;
 use Illuminate\Console\Command;
+use Log;
 
 class SendWeatherForecast extends Command
 {
@@ -41,5 +42,11 @@ class SendWeatherForecast extends Command
         $long = '100_045359';
         $weatherCtrl = new WeatherController();
         $weatherCtrl->sendWeatherForecast($lat, $long);
+
+        // Todo system call python script
+        //http://stackoverflow.com/questions/5497540/how-to-call-a-python-script-from-php
+        $last_line = system('python /home/pi/Document/canet/python_system_call.py', $retrieval);
+        Log::info('###### '. $last_line);
+
     }
 }
