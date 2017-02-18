@@ -40,14 +40,14 @@ class SendWeatherForecast extends Command
     {
         $lat = '13_809739';
         $long = '100_045359';
-        $weatherCtrl = new WeatherController();
-        $weatherCtrl->sendWeatherForecast($lat, $long);
+        //$weatherCtrl = new WeatherController();
+        //$weatherCtrl->sendWeatherForecast($lat, $long);
 
         // Todo system call python script
         //http://stackoverflow.com/questions/5497540/how-to-call-a-python-script-from-php
 
         $lastLine = '';
-        $lastLine = system('python /home/pi/Documents/canet/python_system_call.py', $retrieval);
+        $lastLine = system('python /home/pi/Documents/canet/adc_serial.py', $retrieval);
         Log::info('###### '. $lastLine);
     }
 }
