@@ -45,8 +45,8 @@ class SendWeatherForecast extends Command
 
         // Todo system call python script
         //http://stackoverflow.com/questions/5497540/how-to-call-a-python-script-from-php
-        $last_line = system('python /home/pi/Document/canet/python_system_call.py', $retrieval);
-        Log::info('###### '. $last_line);
+        system('python /home/pi/Document/canet/python_system_call.py', $retrieval);
+        Log::info('###### '. var_dump($retrieval));
 
     }
 }
