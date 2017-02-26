@@ -58,17 +58,17 @@ class DataController extends Controller
     {
         $lastLine = 50;
         // read value from humidity sensor
-        //$lastLine = system('python '.base_path('public\\agent\\adc_serial.py'), $retrieval);
+        //$lastLine = system('python '.base_path('public/agent/adc_serial.py'), $retrieval);
 
         //take picture with RPi Cam
-        //system('python /home/pi/Documents/canet/take_picture.py', $ret);
+        system('python '.base_path('public/agent/adc_serial.py'), $ret);
 
+        // Todo Change slash according to windows and linux
         $filename1 = base_path('public/original_image.jpg');
         $filename2 = base_path('public/process_image.jpg');
         $cFile1 = new \CURLFile($filename1);
         $cFile2 = new \CURLFile($filename2);
 
-        //Todo Read Image from path
         $plantData = [
             'humidity' => $lastLine,
             'original_image' => $cFile1,
