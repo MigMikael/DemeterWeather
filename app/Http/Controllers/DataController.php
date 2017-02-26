@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Storage;
 use Log;
 use Illuminate\Http\Request;
 
@@ -64,8 +63,8 @@ class DataController extends Controller
         //take picture with RPi Cam
         //system('python /home/pi/Documents/canet/take_picture.py', $ret);
 
-        $filename1 = base_path('public\\original_image.jpg');
-        $filename2 = base_path('public\\process_image.jpg');
+        $filename1 = base_path('public/original_image.jpg');
+        $filename2 = base_path('public/process_image.jpg');
         $cFile1 = new \CURLFile($filename1);
         $cFile2 = new \CURLFile($filename2);
 
@@ -116,6 +115,6 @@ class DataController extends Controller
 
     public function testFilePath()
     {
-        return base_path('public\\original_image.jpg');
+        return base_path('public/original_image.jpg');
     }
 }
