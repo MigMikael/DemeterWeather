@@ -29,8 +29,8 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
 
         $schedule->command('send:weatherForecast')
-        //        ->everyFiveMinutes();
-                    ->everyMinute();
+                ->everyFiveMinutes();
+        //            ->everyMinute();
     }
 
     /**
