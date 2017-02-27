@@ -63,7 +63,10 @@ class DataController extends Controller
         // take picture with standard usb Webcam with RPi
         //system('fswebcam -r 640*480 --no-banner /var/www/html/DemetorWeather/public/test_image.jpg');
 
-        //take picture with RPi Cam
+        //take picture with RPi Cam using shell script
+        //system('raspistill -w 1024 -h 1024 -q 50 -o /var/www/html/DemetorWeather/public/process_image.jpg');
+
+        //take picture with RPi Cam using python
         //system('python '.base_path('public/agent/adc_serial.py'), $ret);
 
         // Todo Change slash according to windows and linux
