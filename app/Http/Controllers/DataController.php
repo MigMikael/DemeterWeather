@@ -67,7 +67,7 @@ class DataController extends Controller
         //system('raspistill -w 1024 -h 1024 -q 50 -o /var/www/html/DemetorWeather/public/process_image.jpg');
 
         //take picture with RPi Cam using python
-        //system('python '.base_path('public/agent/adc_serial.py'), $ret);
+        system('python take_picture2.py'), $ret);
 
         // Todo Change slash according to windows and linux
         $filename1 = base_path('public/original_image.jpg');
