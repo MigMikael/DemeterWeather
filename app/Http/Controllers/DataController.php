@@ -58,7 +58,7 @@ class DataController extends Controller
     {
         $lastLine = 50;
         // read value from humidity sensor
-        //$lastLine = system('python '.base_path('public/agent/adc_serial.py'), $retrieval);
+        $lastLine = system('python '.base_path('public/agent/adc_serial.py'));
 
         // take picture with standard usb Webcam with RPi
         //system('fswebcam -r 640*480 --no-banner /var/www/html/DemetorWeather/public/test_image.jpg');
@@ -68,6 +68,9 @@ class DataController extends Controller
 
         //take picture with RPi Cam using python
         system('python /var/www/html/DemeterWeather/public/agent/take_picture2.py');
+
+	//convert picture to grayscale
+	system('python /var/www/html/DemeterWeather/public/agent/converter.py');
 
         // Todo Change slash according to windows and linux
         $filename1 = base_path('public/original_image.jpg');
