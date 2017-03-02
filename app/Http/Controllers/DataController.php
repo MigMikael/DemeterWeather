@@ -41,6 +41,7 @@ class DataController extends Controller
 
         $data = self::curlGetRequest($url);
         $weatherData = [
+            'temp' => $data['main']['temp'] - 272.15,
             'temp_min' => $data['main']['temp_min'] - 272.15,
             'temp_max' => $data['main']['temp_max'] - 272.15,
             'humidity' => $data['main']['humidity'],
